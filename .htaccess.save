@@ -1,0 +1,19 @@
+od_rewrite.c>
+   RewriteEngine on
+   RewriteRule    ^$ app/webroot/    [L]
+   RewriteRule    (.*) app/webroot/$1 [L]
+</IfModule>
+
+# Each directory to which Apache has access can be configured with respect
+# to which services and features are allowed and/or disabled in that
+# directory (and its subdirectories).
+#
+# First, we configure the "default" to be a very restrictive set of
+# features.
+#
+<Directory />
+    Options FollowSymLinks
+    AllowOverride All
+    Order deny,allow
+    Deny from all
+</Directory>
